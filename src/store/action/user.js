@@ -24,28 +24,28 @@ export const doSignIn = (data) => {
     }
   };
 };
-const doSignInAuto = (data) => {
-  return async () => {
-    try {
-      console.log(data);
-      const response = await fetch(`${URL}/auth/signin`, {
-        method: "POST",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-      if (response.status === 200) {
-        const json = await response.json();
-        await localStorage.setItem("token", json.accessToken);
-        await localStorage.setItem("userId", json.id);
-      }
-    } catch (e) {
-      console.log(e.message);
-    }
-  };
-};
+// const doSignInAuto = (data) => {
+//   return async () => {
+//     try {
+//       console.log(data);
+//       const response = await fetch(`${URL}/auth/signin`, {
+//         method: "POST",
+//         mode: "cors",
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify(data),
+//       });
+//       if (response.status === 200) {
+//         const json = await response.json();
+//         await localStorage.setItem("token", json.accessToken);
+//         await localStorage.setItem("userId", json.id);
+//       }
+//     } catch (e) {
+//       console.log(e.message);
+//     }
+//   };
+// };
 
 export const doSignUp = (data) => {
   return async (dispatch) => {
@@ -60,7 +60,7 @@ export const doSignUp = (data) => {
       });
       if (response.status === 200) {
         const json = await response.json();
-        await doSignInAuto({ email: data.email, password: data.password });
+        // await doSignInAuto({ email: data.email, password: data.password });
       }
     } catch (e) {
       console.log(e.message);
@@ -85,7 +85,7 @@ export const getUserById = (id) => {
       } else {
         await localStorage.removeItem("token");
         await localStorage.removeItem("userId");
-        await dispatch({ type: CHANGE_TOKEN_VALID, payload: true });
+        await dispatch({ type: CHANGE_TOKEN_VALID, payload: false });
       }
     } catch (e) {
       console.log(e.message);

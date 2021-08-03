@@ -1,7 +1,8 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 
-import LostFoundForm from "../components/Form/LostFoundForm";
+import FoundForm from "../components/Form/FoundForm";
+import LostForm from "../components/Form/LostForm";
 import FoundPets from "../components/FoundLost/FoundPets";
 import LostPets from "../components/FoundLost/LostPets";
 import PetFound from "../components/FoundLost/PetFound";
@@ -30,10 +31,10 @@ const Pages = () => {
         <SignUpIn />
       </Route>
       <Route exact={true} path="/lost/form/lost">
-        <LostFoundForm />
+        <LostForm />
       </Route>
       <Route exact={true} path="/found/form/found">
-        <LostFoundForm />
+        <FoundForm />
       </Route>
       <Route exact={true} path="/edit_profile/:id">
         <EditProfile />

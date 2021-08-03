@@ -4,20 +4,21 @@ import { NavLink, useHistory } from "react-router-dom";
 import { doSignIn } from "../../store/action/user";
 
 const SignIn = () => {
-const [isField,setIsField]=useState({})
+  const [isField, setIsField] = useState({ email: "", password: "" });
 
-const dispatch=useDispatch()
+  const dispatch = useDispatch();
 
-const history=useHistory()
+  const history = useHistory();
 
-const isChangeField=(event)=>{
+  const isChangeField = (event) => {
     setIsField({ ...isField, [event.target.name]: event.target.value });
-}
-const submitForm=(event)=>{
+  };
+  const submitForm = (event) => {
     event.preventDefault();
-    dispatch(doSignIn(isField))
-    history.push('/home')
-}
+    dispatch(doSignIn(isField));
+    setIsField({ email: "", password: "" });
+    history.push("/home");
+  };
 
   return (
     <form className="modal__form form-sign-in" onSubmit={submitForm}>
@@ -25,11 +26,25 @@ const submitForm=(event)=>{
         <div className="modal__form-items">
           <div className="modal__form-item">
             <label>Email:</label>
-            <input type="email" name="email" placeholder="helenjohnson@gmail.com" required onChange={isChangeField}/>
+            <input
+              type="email"
+              name="email"
+              placeholder="helenjohnson@gmail.com"
+              required
+              onChange={isChangeField}
+              defaultValue={isField.email}
+            />
           </div>
           <div className="modal__form-item">
             <label>Password:</label>
-            <input type="password" name="password" placeholder="**********" required onChange={isChangeField}/>
+            <input
+              type="password"
+              name="password"
+              placeholder="**********"
+              required
+              onChange={isChangeField}
+              defaultValue={isField.password}
+            />
           </div>
         </div>
       </div>
@@ -51,7 +66,9 @@ const submitForm=(event)=>{
           >
             Cancel
           </div>
-          <button className="button blue icon-paw" type="submit">Submit</button>
+          <button className="button blue icon-paw" type="submit">
+            Submit
+          </button>
         </div>
       </div>
     </form>

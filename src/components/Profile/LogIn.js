@@ -16,8 +16,13 @@ const LogIn = () => {
     if (localStorage.token && localStorage.userId) {
       dispatch(getUserById(localStorage.userId));
     }
-    if(!user.id){logOut()}
   }, []);
+
+  useEffect(() => {
+    if (localStorage.token && localStorage.userId) {
+      dispatch(getUserById(localStorage.userId));
+    }
+  }, [tokenIsValid]);
 
   const logOut = () => {
     dispatch(doSignOut());
@@ -35,7 +40,7 @@ const LogIn = () => {
           <div className="user-card__img">
             <img
               src={
-                user.photo ||
+                user.avatar ||
                 "https://delawarehumane.org/wp-content/uploads/2016/06/Dog-Paw.png"
               }
               alt=""

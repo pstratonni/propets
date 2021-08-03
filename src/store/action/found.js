@@ -24,7 +24,6 @@ export const getFoundPets = () => {
 export const getFoundPetById = (id) => {
   return async (dispatch) => {
     try {
-      console.log(id);
       const response = await fetch(`${URL}/lostfounds/found/${id}`, {
         method: "GET",
         mode: "cors",
@@ -40,6 +39,24 @@ export const getFoundPetById = (id) => {
     }
   };
 };
+
+export const addPet=(data)=>{
+  return async (dispatch)=>{
+    try{
+      const response=await fetch(`${URL}/lostfounds`,{
+        method:"POST",
+        mode:"cors",
+        headers:{
+          "Content-Type": "application/json",
+          "x-api-key": localStorage.token,
+        },
+        body: JSON.stringify(data),
+      });
+    }catch (e) {
+      console.log(e.message);
+    }
+  }
+}
 
 const fetchFoundPets = (obj) => {
   return {
