@@ -1,10 +1,14 @@
 import React, { useContext, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { getLostPets } from "../../store/action/lost";
 import { navContext } from "../App";
+import CardLostPet from "./CardLostPet";
 
 const LostPets = () => {
   const { isNav, setIsNav, isLostFound, setIsLostFound } =
     useContext(navContext);
+    const dispatch = useDispatch();
 
   useEffect(() => {
     if (!isNav) {
@@ -13,7 +17,27 @@ const LostPets = () => {
     if (!isLostFound) {
       setIsLostFound(true);
     }
-  });
+
+dispatch(getLostPets())
+  },[]);
+
+  const list =useSelector(state=>state.lostsPets.list)
+
+  const renderCard = () => {
+    return list.length ? (
+      list.map((pet) => (
+        <CardLostPet
+          key={pet.id}
+          photo={pet.photo}
+          type={pet.type}
+          location={pet.location}
+          id={pet.id}
+        />
+      ))
+    ) : (
+      <div>No pets found</div>
+    );
+  };
 
   return (
     <div className="home-page__container">
@@ -23,86 +47,7 @@ const LostPets = () => {
         <NavLink to="/sign_in">join</NavLink> to our community!
       </div>
       <div className="home-page__row cards">
-        <article className="card">
-          <div className="card__info-hover icon-map-marker">
-            Oliver Platz, Berlin
-          </div>
-          <span className="card__category">Lost</span>
-          <div className="card__img"></div>
-          <div
-            className="card__img--hover"
-            style={{
-              backgroundImage: `url(https://propets.space/prototype/images/dist/lost-pets/uncle-sam.png)`,
-            }}
-          ></div>
-          <div className="card__info">
-            <h3 className="card__title">Uncle Sam</h3>
-            <div className="card-details">
-              <span>View </span>
-              <NavLink
-                to="/loist/details"
-                className="card-details__link icon-chevron-double"
-                title="View details"
-              >
-                details
-              </NavLink>
-            </div>
-          </div>
-        </article>
-
-        <article className="card ">
-          <div className="card__info-hover icon-map-marker">
-            Oliver Platz, Berlin
-          </div>
-          <span className="card__category">Lost</span>
-          <div className="card__img"></div>
-          <div
-            className="card__img--hover"
-            style={{
-              backgroundImage: `url(https://propets.space/prototype/images/dist/lost-pets/janetta.png)`,
-            }}
-          ></div>
-          <div className="card__info">
-            <h3 className="card__title">Janetta</h3>
-            <div className="card-details">
-              <span>View </span>
-              <NavLink
-                to="/loist/details"
-                className="card-details__link icon-chevron-double"
-                title="View details"
-              >
-                details
-              </NavLink>
-            </div>
-          </div>
-        </article>
-
-        <article className="card ">
-          <div className="card__info-hover icon-map-marker">
-            Schloss Str, Potsdam
-          </div>
-          <span className="card__category">Lost</span>
-          <div className="card__img"></div>
-          <div
-            className="card__img--hover"
-            style={{
-              backgroundImage: `url(https://propets.space/prototype/images/dist/lost-pets/john-goodboy.png)`,
-            }}
-          ></div>
-          <div className="card__info">
-            <h3 className="card__title">John Goodboy</h3>
-            <div className="card-details">
-              <span>View </span>
-              <NavLink
-                to="/loist/details"
-                className="card-details__link icon-chevron-double"
-                title="View details"
-              >
-                details
-              </NavLink>
-            </div>
-          </div>
-        </article>
+        {renderCard()}
       </div>
     </div>
   );

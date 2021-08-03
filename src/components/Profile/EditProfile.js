@@ -53,11 +53,13 @@ const EditProfile = () => {
               <img src="../images/dist/users/anna-smith.jpg" alt="" />
             </div>
             {isChangeName ? (
-              <input type="text" placeholder="Anna Smith"  onChange={changeHandle}/>
+              <div className="my-profile__user-information-name icon-pencil-alt">				
+              <input type="text" placeholder="Anna Smith"/>
+            </div>
             ) : (
-              <div className="my-profile__user-information-name ">
-                <i className="icon-pencil-alt" onClick={()=>setIsChangeName(true)}/>
-                Anna Smith
+              <div className="my-profile__user-information-name icon-pencil-alt" onClick={()=>setIsChangeName(true)}>
+        
+        {" "}Anna Smith
               </div>
             )}
           </div>

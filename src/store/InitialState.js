@@ -1,7 +1,7 @@
 const InitialState = {
   users: {
     user:{},
-    tokenIsValide:true
+    tokenIsValid:true
   },
   foundsPets: {
     list: [],
@@ -9,9 +9,11 @@ const InitialState = {
   },
   lostsPets: {
     list: [],
+    petById:{}
   },
   posts:{
     list:[],
+    postById:{}
   }
 };
 export default InitialState;

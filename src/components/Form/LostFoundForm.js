@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { navContext } from "../App";
 import LostFoundLogo from "../Logo/LostFoundLogo";
-import init from "../utilits/select";
+import {init} from "../utilits/select";
 import Select from "./Select";
 
 const LostFoundForm = () => {
-  const { isNav, setIsNav, isLostFound, setIsLostFound } =
+  const { isNav, setIsNav, isLostFound, setIsLostFound,isChangeActinve, setIsChangeActive } =
     useContext(navContext);
   const [isFound, setIsFound] = useState(true);
   const [_isFound, _setIsFound] = useState(true);
@@ -16,6 +16,7 @@ const LostFoundForm = () => {
     if (!isLostFound) {
       setIsLostFound(true);
     }
+    setIsChangeActive(!isChangeActinve)
     init();
   }, []);
 
@@ -25,6 +26,7 @@ const LostFoundForm = () => {
     } else {
       setIsFound(true);
     }
+    setIsChangeActive(!isChangeActinve)
   }, [document.location.pathname.split("/").pop()]);
 
  
@@ -76,7 +78,7 @@ const LostFoundForm = () => {
               </div>
             </div>
             <div className="lost-page__items items-img">
-              <img src="../images/dist/lost-form-img.png" alt="dog-walking" />
+              <img src="../../images/dist/lost-form-img.png" alt="dog-walking" />
             </div>
             <div className="lost-page__items">
               <div className="lost-page__item">

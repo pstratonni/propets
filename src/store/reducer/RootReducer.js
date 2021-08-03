@@ -7,7 +7,7 @@ import UsersReducer from "./UsersReduser";
 const RootReducer=combineReducers({
     users:UsersReducer,
     foundsPets:FoundsReducer,
-    // lostsPets:LostsReducer,
-    // posts:HomeReducer,
+    lostsPets:LostsReducer,
+    posts:HomeReducer,
 })
 export default RootReducer

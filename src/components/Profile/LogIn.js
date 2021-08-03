@@ -9,7 +9,7 @@ const LogIn = () => {
 
   const history = useHistory();
   const user = useSelector((state) => state.users.user);
-  const tokenIsValide = useSelector((state) => state.users.tokenIsValide);
+  const tokenIsValid = useSelector((state) => state.users.tokenIsValid);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -51,7 +51,7 @@ const LogIn = () => {
   return (
     <aside className="home-page__sidebar-right">
       <div className="user-card">
-        {tokenIsValide ? renderCard() : <SignInButton />}
+        {tokenIsValid ? renderCard() : <SignInButton />}
       </div>
     </aside>
   );

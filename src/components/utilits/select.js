@@ -1,4 +1,4 @@
-function init() {
+export function init() {
   let selects = document.getElementsByTagName("select");
   if (selects.length > 0) {
     selects_init();
@@ -250,4 +250,4 @@ function init() {
   };
 }
 
-export default init;
+

@@ -1,4 +1,4 @@
-import { FETCH_FOUND_PETS } from "../typeList";
+import { FETCH_FOUND_PETS, FETCH_FOUND_PET_BY_ID } from "../typeList";
 import URL from "../url";
 
 export const getFoundPets = () => {
@@ -7,12 +7,34 @@ export const getFoundPets = () => {
       const response = await fetch(`${URL}/lostfounds/found`, {
         method: "GET",
         mode: "cors",
+        redirect:"follow",
         headers: {
           "Content-Type": "application/json",
         },
       });
+      if(response.status!==200)return
       const json = await response.json();
-      dispatch(fetchFoundPets({ list: json }));
+      await dispatch(fetchFoundPets({ list: json }));
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
+};
+
+export const getFoundPetById = (id) => {
+  return async (dispatch) => {
+    try {
+      console.log(id);
+      const response = await fetch(`${URL}/lostfounds/found/${id}`, {
+        method: "GET",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if(response.status!==200)return
+      const json = await response.json();
+      dispatch(fetchFoundPetById({ petById: json }));
     } catch (e) {
       console.log(e.message);
     }
@@ -26,20 +48,9 @@ const fetchFoundPets = (obj) => {
   };
 };
 
-export const getFoundPetsById = (id) => {
-    return async (dispatch) => {
-      try {
-        const response = await fetch(`${URL}/lostfounds/found/${id}`, {
-          method: "GET",
-          mode: "cors",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-        const json = await response.json();
-        dispatch(fetchFoundPets({ list: json }));
-      } catch (e) {
-        console.log(e.message);
-      }
-    };
+const fetchFoundPetById = (obj) => {
+  return {
+    type: FETCH_FOUND_PET_BY_ID,
+    payload: obj,
   };
+};

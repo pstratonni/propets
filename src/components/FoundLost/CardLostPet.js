@@ -1,11 +1,11 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const CardFoundPet = ({ type, location, photo, id }) => {
+const CardLostPet = ({ type, location, photo, id }) => {
   return (
     <article className="card">
       <div className="card__info-hover icon-map-marker">{" "}{location}</div>
-      <span className="card__category found-category">Found</span>
+      <span className="card__category">Lost</span>
       <div className="card__img"></div>
       <div
         className="card__img--hover"
@@ -21,7 +21,7 @@ const CardFoundPet = ({ type, location, photo, id }) => {
         <div className="card-details">
           <span>View </span>
           <NavLink
-            to={`/found/${id}`}
+            to={`/lost/${id}`}
             className="card-details__link icon-chevron-double"
             title="View details"
           >
@@ -32,4 +32,4 @@ const CardFoundPet = ({ type, location, photo, id }) => {
     </article>
   );
 };
-export default CardFoundPet;
+export default CardLostPet;

@@ -9,24 +9,32 @@ export const navContext = React.createContext();
 const App = () => {
   const [isNav, setIsNav] = useState(false);
   const [isLostFound, setIsLostFound] = useState(false);
+  const [isChangeActinve, setIsChangeActive] = useState(false);
   const renderNavigation = () => {
-    return isNav ? (
+    return (
       <>
         <Head />
-        <NavBar />
+        <main className="page home-page">
+          <NavBar />
+          <Pages />
+          <LogIn />
+        </main>
       </>
-    ) : null;
+    );
   };
 
   return (
     <navContext.Provider
-      value={{ isNav, setIsNav, isLostFound, setIsLostFound }}
+      value={{
+        isNav,
+        setIsNav,
+        isLostFound,
+        setIsLostFound,
+        isChangeActinve,
+        setIsChangeActive,
+      }}
     >
-      <main className={isNav ? "page home-page" : null}>
-        {renderNavigation()}
-        <Pages />
-        {isNav ? <LogIn /> : null}
-      </main>
+      <div className="wrapper">{!isNav ? <Pages /> : renderNavigation()}</div>
     </navContext.Provider>
   );
 };
