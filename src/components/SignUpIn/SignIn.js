@@ -25,11 +25,11 @@ const submitForm=(event)=>{
         <div className="modal__form-items">
           <div className="modal__form-item">
             <label>Email:</label>
-            <input type="email" placeholder="helenjohnson@gmail.com" required onChange={isChangeField}/>
+            <input type="email" name="email" placeholder="helenjohnson@gmail.com" required onChange={isChangeField}/>
           </div>
           <div className="modal__form-item">
             <label>Password:</label>
-            <input type="password" placeholder="**********" required onChange={isChangeField}/>
+            <input type="password" name="password" placeholder="**********" required onChange={isChangeField}/>
           </div>
         </div>
       </div>

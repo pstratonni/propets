@@ -16,6 +16,7 @@ const LogIn = () => {
     if (localStorage.token && localStorage.userId) {
       dispatch(getUserById(localStorage.userId));
     }
+    if(!user.id){logOut()}
   }, []);
 
   const logOut = () => {
@@ -32,10 +33,16 @@ const LogIn = () => {
           }}
         >
           <div className="user-card__img">
-            <img src="../images/dist/users/anna-smith.jpg" alt="" />
+            <img
+              src={
+                user.photo ||
+                "https://delawarehumane.org/wp-content/uploads/2016/06/Dog-Paw.png"
+              }
+              alt=""
+            />
           </div>
-          <div className="user-card__name">Anna</div>
-          <div className="user-card__name">Smith</div>
+          <div className="user-card__name">{user.fullName}</div>
+          {/* <div className="user-card__name">Smith</div> */}
         </div>
         <NavLink
           to="#"
