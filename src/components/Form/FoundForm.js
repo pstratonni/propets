@@ -46,7 +46,9 @@ const FoundForm = () => {
   const submitHandle = (event) => {
     event.preventDefault();
     dispatch(addPet(isChangeField));
-    history.push("/found");
+    setTimeout(() => {
+       history.push("/found");
+    }, 1000);
   };
 
   useEffect(() => {

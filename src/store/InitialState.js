@@ -1,19 +1,37 @@
 const InitialState = {
   users: {
-    user:{},
-    tokenIsValid:true
+    user: {},
+    tokenIsValid: false,
   },
   foundsPets: {
     list: [],
-    petById:{}
+    petById: {},
   },
   lostsPets: {
     list: [],
-    petById:{}
+    petById: {},
   },
-  posts:{
-    list:[],
-    postById:{}
-  }
+  posts: {
+    list: [],
+    postById: {},
+  },
+  articles: {
+    hotels: {
+      list: [],
+      hotelById: {},
+    },
+    walking: {
+      list: [],
+      walkingById: {},
+    },
+    fostering: {
+      list: [],
+      fosteringById: {},
+    },
+    vetHelp: {
+      list: [],
+      vetHelpgById: {},
+    },
+  },
 };
 export default InitialState;

@@ -1,5 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
+import AddPost from "../components/Form/AddPost";
 
 import FoundForm from "../components/Form/FoundForm";
 import LostForm from "../components/Form/LostForm";
@@ -8,6 +9,7 @@ import LostPets from "../components/FoundLost/LostPets";
 import PetFound from "../components/FoundLost/PetFound";
 import PetLost from "../components/FoundLost/PetLost";
 import Home from "../components/Home/Home";
+import Post from "../components/Home/Post";
 import Main from "../components/Main/Main";
 import EditProfile from "../components/Profile/EditProfile";
 import SignUpIn from "../components/SignUpIn/SignUpIn";
@@ -44,6 +46,12 @@ const Pages = () => {
       </Route>
       <Route exact={true} path="/lost/:id">
         <PetLost />
+      </Route>
+      <Route exact={true} path="/home/post/:id">
+        <Post />
+      </Route>
+      <Route exact={true} path="/home/add_post/">
+        <AddPost />
       </Route>
     </Switch>
   );

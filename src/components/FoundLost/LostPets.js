@@ -17,7 +17,6 @@ const LostPets = () => {
     if (!isLostFound) {
       setIsLostFound(true);
     }
-
 dispatch(getLostPets())
   },[]);
 

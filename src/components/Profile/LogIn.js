@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
 import { doSignOut, getUserById } from "../../store/action/user";
+import { defAvatar } from "../../store/url";
 import SignInButton from "../Main/SignInButton";
 
 const LogIn = () => {
@@ -38,16 +39,12 @@ const LogIn = () => {
           }}
         >
           <div className="user-card__img">
-            <img
-              src={
-                user.avatar ||
-                "https://delawarehumane.org/wp-content/uploads/2016/06/Dog-Paw.png"
-              }
-              alt=""
-            />
+            <img src={user.avatar || defAvatar} alt="" />
           </div>
-          <div className="user-card__name">{user.fullName}</div>
-          {/* <div className="user-card__name">Smith</div> */}
+          <div className="user-card__name">{user.fullName.split(" ")[0]}</div>
+          <div className="user-card__name">
+            {user.fullName.split(" ")[1] || null}
+          </div>
         </div>
         <NavLink
           to="#"
@@ -62,9 +59,7 @@ const LogIn = () => {
 
   return (
     <aside className="home-page__sidebar-right">
-      <div className="user-card">
-        {tokenIsValid ? renderCard() : <SignInButton />}
-      </div>
+      <div className="user-card">{tokenIsValid ? renderCard() : null}</div>
     </aside>
   );
 };

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getFoundPetById } from "../../store/action/found";
+import { defPhoto } from "../../store/url";
 import { navContext } from "../App";
 
 const PetFound = () => {
@@ -37,10 +38,7 @@ const PetFound = () => {
           <div
             className="card-more__img"
             style={{
-              backgroundImage: `url(${
-                pet.photo ||
-                "https://www.abbeyvetgroupbarnsley.co.uk/wp-content/uploads/2014/09/dog-avatar.png"
-              })`,
+              backgroundImage: `url(${pet.photo || defPhoto})`,
             }}
           ></div>
           <div className="card-more__info">
@@ -48,7 +46,10 @@ const PetFound = () => {
               <span>{pet.type ? pet.type : "Not indicated"}</span>,{" "}
               <span>{pet.breed ? pet.breed : "Not indicated"}</span>
             </h3>
-            <div className="card-more__date">{" "}{pet.createdAt || "Not indicated"}</div>
+            <div className="card-more__date">
+              {" "}
+              {pet.createdAt || "Not indicated"}
+            </div>
             <div className="card-more__item">
               <span>Color:</span> {pet.color ? pet.color : "Not indicated"}
             </div>

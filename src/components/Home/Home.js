@@ -19,13 +19,24 @@ const Home = () => {
     }
     dispatch(getPosts());
   }, []);
+
+  useEffect(() => {
+    dispatch(getPosts());
+  }, [posts.length]);
+
+  const renderPosts = () => {
+    return posts.length ? (
+      posts.map((post) => (
+        <HomeCard key={post.id} post={post} />
+      ))
+    ) : (
+      <h2>No posts</h2>
+    );
+  };
+
   return (
     <div className="home-page__container home-content">
-      <div className="home-page__row">
-        <HomeCard />
-        <HomeCard />
-        <HomeCard />
-      </div>
+      <div className="home-page__row">{renderPosts()}</div>
     </div>
   );
 };

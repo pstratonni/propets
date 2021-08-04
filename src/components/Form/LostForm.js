@@ -47,7 +47,10 @@ const LostForm = () => {
   const submitHandle = (event) => {
     event.preventDefault();
     dispatch(addPet(isChangeField));
-    history.push("/lost");
+    setTimeout(() => {
+      history.push("/lost");
+    }, 1000);
+    
   };
 
   useEffect(() => {

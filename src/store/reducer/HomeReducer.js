@@ -1,13 +1,24 @@
-import { FETCH_POSTS, FETCH_POST_BY_ID, LIKE_POST } from "../typeList";
+import {
+  ADD_COMMENT,
+  FETCH_POSTS,
+  FETCH_POST_BY_ID,
+  LIKE_POST,
+} from "../typeList";
 
 const HomeReducer = (state = {}, action) => {
   switch (action.type) {
     case FETCH_POSTS:
       return { ...state, ...action.payload };
     case FETCH_POST_BY_ID:
-      return { ...state, postbyId: action.payload };
+      return { ...state, ...action.payload };
     case LIKE_POST:
-      return { ...state, ...state.payload };
+      const idxLikedPost = state.list.findIndex(
+        (post) => post.id === action.payload.id
+      );
+      if (idxLikedPost === -1) return state;
+      const _list = [...state.list];
+      _list[idxLikedPost].like = action.payload.like;
+      return { ...state, list: _list };
     default:
       return state;
   }

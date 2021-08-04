@@ -61,7 +61,7 @@ const SignIn = () => {
             aria-label="Close modal"
             data-micromodal-close
             onClick={() => {
-              window.history.back();
+            history.push("/");
             }}
           >
             Cancel
