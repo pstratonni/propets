@@ -41,7 +41,7 @@ const LogIn = () => {
           <div className="user-card__img">
             <img src={user.avatar || defAvatar} alt="" />
           </div>
-          <div className="user-card__name">{user.fullName.split(" ")[0]}</div>
+          <div className="user-card__name">{user.fullName.split(" ")[0]||null}</div>
           <div className="user-card__name">
             {user.fullName.split(" ")[1] || null}
           </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
+import AddArticle from "../components/Form/AddArticle";
 import AddPost from "../components/Form/AddPost";
 
 import FoundForm from "../components/Form/FoundForm";
@@ -12,7 +13,10 @@ import Home from "../components/Home/Home";
 import Post from "../components/Home/Post";
 import Main from "../components/Main/Main";
 import EditProfile from "../components/Profile/EditProfile";
+import Article from "../components/Servic/Article";
+import Service from "../components/Servic/Service";
 import SignUpIn from "../components/SignUpIn/SignUpIn";
+import { serviceId } from "../store/typeList";
 
 const Pages = () => {
   return (
@@ -52,6 +56,42 @@ const Pages = () => {
       </Route>
       <Route exact={true} path="/home/add_post/">
         <AddPost />
+      </Route>
+      <Route exact={true} path={`/${serviceId[0]}`}>
+        <Service />
+      </Route>
+      <Route exact={true} path={`/${serviceId[1]}`}>
+        <Service />
+      </Route>
+      <Route exact={true} path={`/${serviceId[2]}`}>
+        <Service />
+      </Route>
+      <Route exact={true} path={`/${serviceId[3]}`}>
+        <Service />
+      </Route>
+      <Route exact={true} path={`/${serviceId[0]}/post/:id`}>
+        <Article />
+      </Route>
+      <Route exact={true} path={`/${serviceId[1]}/post/:id`}>
+        <Article />
+      </Route>
+      <Route exact={true} path={`/${serviceId[2]}/post/:id`}>
+        <Article />
+      </Route>
+      <Route exact={true} path={`/${serviceId[3]}/post/:id`}>
+        <Article />
+      </Route>
+      <Route exact={true} path={`/${serviceId[0]}/add_post`}>
+        <AddArticle />
+      </Route>
+      <Route exact={true} path={`/${serviceId[1]}/add_post`}>
+        <AddArticle />
+      </Route>
+      <Route exact={true} path={`/${serviceId[2]}/add_post`}>
+        <AddArticle />
+      </Route>
+      <Route exact={true} path={`/${serviceId[3]}/add_post`}>
+        <AddArticle />
       </Route>
     </Switch>
   );

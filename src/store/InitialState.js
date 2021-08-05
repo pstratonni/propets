@@ -1,3 +1,5 @@
+import { serviceId } from "./typeList";
+
 const InitialState = {
   users: {
     user: {},
@@ -15,23 +17,29 @@ const InitialState = {
     list: [],
     postById: {},
   },
-  articles: {
-    hotels: {
-      list: [],
-      hotelById: {},
+  articles:{list: [
+    {
+      [serviceId[0]]: {
+        list: [],
+      },
     },
-    walking: {
-      list: [],
-      walkingById: {},
+    {
+      [serviceId[1]]: {
+        list: [],
+      },
     },
-    fostering: {
-      list: [],
-      fosteringById: {},
+    {
+      [serviceId[2]]: {
+        list: [],
+      },
     },
-    vetHelp: {
-      list: [],
-      vetHelpgById: {},
+    {
+      [serviceId[3]]: {
+        list: [],
+      },
     },
-  },
+  ],
+  articleById:{}
+},
 };
 export default InitialState;

@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { serviceId } from "../store/typeList";
 import { navContext } from "./App";
 
 const NavBar = () => {
@@ -67,38 +68,38 @@ const NavBar = () => {
         <ul className="navigation__list">
           <li className="navigation__li">
             <NavLink
-              to="/hotels"
+              to={`/${serviceId[0]}`}
               className="navigation__link icon-hotel"
               onClick={changeActiv}
             >
-              Hotels
+              {serviceId[0]}
             </NavLink>
           </li>
           <li className="navigation__li">
             <NavLink
-              to="/walking"
+              to={`/${serviceId[1]}`}
               className="navigation__link icon-walking"
               onClick={changeActiv}
             >
-              Walking
+              {serviceId[1]}
             </NavLink>
           </li>
           <li className="navigation__li">
             <NavLink
-              to="/fostering"
+              to={`/${serviceId[2]}`}
               className="navigation__link icon-dog"
               onClick={changeActiv}
             >
-              Fostering
+              {serviceId[2]}
             </NavLink>
           </li>
           <li className="navigation__li">
             <NavLink
-              to="/vet_help"
+              to={`/${serviceId[3]}`}
               className="navigation__link icon-stethoscope"
               onClick={changeActiv}
             >
-              VetHelp
+              {serviceId[3]}
             </NavLink>
           </li>
         </ul>
