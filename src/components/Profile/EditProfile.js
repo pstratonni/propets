@@ -36,7 +36,6 @@ const EditProfile = () => {
   useEffect(() => {
     setChangeField({ ...user });
   }, [user.id]);
-  console.log(changeField);
   const changeHandle = (event) => {
     setChangeField({ ...changeField, [event.target.name]: event.target.value });
   };
