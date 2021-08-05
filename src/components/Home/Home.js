@@ -20,9 +20,9 @@ const Home = () => {
     dispatch(getPosts());
   }, []);
 
-  useEffect(() => {
-    dispatch(getPosts());
-  }, [posts.length]);
+  // useEffect(() => {
+  //   dispatch(getPosts());
+  // }, [posts.length]);
 
   const renderPosts = () => {
     return posts.length ? (

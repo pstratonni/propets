@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getLostPetById } from "../../store/action/lost";
 import { navContext } from "../App";
+import renderTime from "../utilits/time";
 
 const PetLost = () => {
   const { isNav, setIsNav, isLostFound, setIsLostFound } =
@@ -46,7 +47,10 @@ const PetLost = () => {
               <span>{pet.type || "Not indicated"}</span>,{" "}
               <span>{pet.breed || "Not indicated"}</span>
             </h3>
-            <div className="card-more__date">{" "}{pet.createdAt || "Not indicated"}</div>
+            <div className="card-more__date">
+              {" "}
+              {renderTime(pet.createdAt) || "Not indicated"}
+            </div>
             <div className="card-more__item">
               <span>Color:</span> {pet.color || "Not indicated"}
             </div>

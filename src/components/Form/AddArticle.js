@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
+import { addArticle } from '../../store/action/service';
 import { getUserById } from '../../store/action/user';
 import { serviceId } from '../../store/typeList';
 import { defPhoto } from '../../store/url';
@@ -28,7 +29,7 @@ const AddArticle=()=>{
 
   const submitHandle = (event) => {
     event.preventDefault();
-    // dispatch(addPost(isField));
+    dispatch(addArticle(isField));
     setTimeout(() => {
       history.push(`/${serviceId[idx]}`);
     }, 1000);

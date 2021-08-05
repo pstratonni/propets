@@ -20,7 +20,7 @@ const SignUp = () => {
       let _isField = { ...isField };
       delete _isField.password_checking;
       dispatch(doSignUp(_isField));
-      history.push('/home')
+      history.push('/Post')
     } else {
       console.log("пароли не совпали");
     }

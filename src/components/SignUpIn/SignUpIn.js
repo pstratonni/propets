@@ -6,7 +6,7 @@ import SignUp from "./SignUp";
 
 const SignUpIn = () => {
 
-    useEffect(()=>{document.getElementById('form-sign-up').checked=true},[])
+    useEffect(()=>{document.getElementById('form-sign-in').checked=true},[])
 
   return (
     <div className="modal micromodal-slide" id="modal-1" aria-hidden="true" style={{display:"block"}}>

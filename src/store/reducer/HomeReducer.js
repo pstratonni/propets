@@ -18,7 +18,7 @@ const HomeReducer = (state = {}, action) => {
       if (idxLikedPost === -1) return state;
       const _list = [...state.list];
       _list[idxLikedPost].like = action.payload.like;
-      return { ...state, list: _list };
+      return { ...state, list: _list, postById: action.payload };
     default:
       return state;
   }

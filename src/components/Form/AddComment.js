@@ -1,22 +1,8 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addComment, getPostsById } from "../../store/action/posts";
+import React from "react";
 
-const AddComment = ({ id,submitHandle }) => {
-    const dispatch = useDispatch();
-  const [isField, setIsField] = useState({
-    postId: id,
-    text: "",
-  });
-
-  const cangeField = (event) => {
-    setIsField({ ...isField, [event.target.name]: event.target.value });
-  };
-
-
-
+const AddComment = ({ submitHandle, isField, cangeField }) => {
   return (
-    <form className="card-comments__form" onSubmit={(event)=>submitHandle(event,isField)}>
+    <form className="card-comments__form" onSubmit={submitHandle}>
       <div className="card-comments__item">
         <input
           type="text"
@@ -24,6 +10,7 @@ const AddComment = ({ id,submitHandle }) => {
           name="text"
           onChange={cangeField}
           required
+          value={isField.text}
         />
       </div>
       <div className="card-comments__item">

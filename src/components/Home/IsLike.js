@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { addLike } from "../../store/action/posts";
 
+
 const IsLike = ({ like, id }) => {
   const dispatch = useDispatch();
   const addLikePost = (like, id) => {

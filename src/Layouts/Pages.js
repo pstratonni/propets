@@ -30,7 +30,7 @@ const Pages = () => {
       <Route exact={true} path="/lost">
         <LostPets />
       </Route>
-      <Route exact={true} path="/home">
+      <Route exact={true} path="/Post">
         <Home />
       </Route>
       <Route exact={true} path="/sign_in">
@@ -51,10 +51,10 @@ const Pages = () => {
       <Route exact={true} path="/lost/:id">
         <PetLost />
       </Route>
-      <Route exact={true} path="/home/post/:id">
+      <Route exact={true} path="/Post/post/:id">
         <Post />
       </Route>
-      <Route exact={true} path="/home/add_post/">
+      <Route exact={true} path="/Post/add_post/">
         <AddPost />
       </Route>
       <Route exact={true} path={`/${serviceId[0]}`}>

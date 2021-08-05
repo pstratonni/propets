@@ -3,6 +3,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 // import { addLike } from "../../store/action/posts";
 import { defPhoto } from "../../store/url";
+import renderTime from "../utilits/time";
 import IsLike from "./IsLike";
 
 const HomeCard = ({ post }) => {
@@ -14,7 +15,7 @@ const HomeCard = ({ post }) => {
           <img src={post.User.photo || defPhoto} alt="Pet avatar" />
         </div>
         <div className="pet-avatar__name">{post.User.nick||post.User.fullName}</div>
-        <div className="pet-avatar__date">{post.createdAt}</div>
+        <div className="pet-avatar__date">{renderTime(post.createdAt)}</div>
       </div>
       <div className="posts__card-img">
 				<img src={post.photo ||null} alt=""/>
@@ -24,7 +25,7 @@ const HomeCard = ({ post }) => {
       </div>
       <div className="posts__card-details card-details">
         <NavLink
-          to={`/home/post/${post.id}`}
+          to={`/Post/post/${post.id}`}
           className="card-details__link services-cards__details icon-chevron-double"
           data-open="Close"
           data-close="...view details"

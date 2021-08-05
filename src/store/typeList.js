@@ -14,4 +14,4 @@ export const ADD_COMMENT="ADD_COMMENT"
 
 export const FETCH_ARTICLES="FETCH_ARTICLES"
 export const FETCH_ARTICLES_BY_ID="FETCH_ARTICLES_BY_ID"
-export const serviceId=["Hotels","Walking","Fostering","VetHelp"]
+export const serviceId=["Hotels","Walking","Fostering","VetHelp","Post"]

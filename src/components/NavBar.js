@@ -34,7 +34,7 @@ const NavBar = () => {
         <ul className="navigation__list" id="top">
           <li className="navigation__li">
             <NavLink
-              to="/home"
+              to="/Post"
               className="navigation__link icon-home"
               onClick={changeActiv}
             >

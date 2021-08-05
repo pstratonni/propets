@@ -1,7 +1,8 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import PostButton from "./PostButton";
 
-const HeadButton = ({ isLostFound }) => {
+const HeadButton = ({ isLostFound, isHome }) => {
   const history = useHistory();
 
   return isLostFound ? (
@@ -24,12 +25,7 @@ const HeadButton = ({ isLostFound }) => {
       </button>
     </div>
   ) : (
-    <button
-      className="header__button button blue icon-plus"
-      onClick={() => history.push("/home/add_post")}
-    >
-      Add Post
-    </button>
+    <PostButton isHome={isHome} />
   );
 };
 export default HeadButton;

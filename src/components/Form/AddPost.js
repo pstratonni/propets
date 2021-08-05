@@ -26,7 +26,7 @@ const AddPost = () => {
     event.preventDefault();
     dispatch(addPost(isField));
     setTimeout(() => {
-      history.push("/home");
+      history.push("/Post");
     }, 1000);
   };
 

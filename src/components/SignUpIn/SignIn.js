@@ -17,7 +17,7 @@ const SignIn = () => {
     event.preventDefault();
     dispatch(doSignIn(isField));
     setIsField({ email: "", password: "" });
-    history.push("/home");
+    history.push("/Post");
   };
 
   return (

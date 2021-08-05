@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { getFoundPetById } from "../../store/action/found";
 import { defPhoto } from "../../store/url";
 import { navContext } from "../App";
+import renderTime from "../utilits/time";
 
 const PetFound = () => {
   const { isNav, setIsNav, isLostFound, setIsLostFound } =
@@ -48,7 +49,7 @@ const PetFound = () => {
             </h3>
             <div className="card-more__date">
               {" "}
-              {pet.createdAt || "Not indicated"}
+              {renderTime(pet.createdAt) || "Not indicated"}
             </div>
             <div className="card-more__item">
               <span>Color:</span> {pet.color ? pet.color : "Not indicated"}
