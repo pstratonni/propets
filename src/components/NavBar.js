@@ -30,7 +30,6 @@ const NavBar = () => {
 
   const renderBurger = () => {
     const active = document.querySelectorAll("#left, #burg, #right");
-    console.log(active);
     for (let elem of active) {
       elem.classList.toggle("_active");
     }
