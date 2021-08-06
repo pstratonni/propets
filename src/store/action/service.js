@@ -16,7 +16,7 @@ export const getArticles = () => {
       const json = await response.json();
       console.log(json);
       const articels = await filterService(json);
-      await dispatch(fetchService({ list: articels.list }));
+      await dispatch(fetchService({ list: articels }));
     } catch (e) {
       console.log(e.message);
     }
@@ -62,35 +62,35 @@ export const addArticle = (data) => {
 };
 
 const filterService = (data) => {
-  const articels = {
-    list: [
-      {
-        [serviceId[0]]: {
-          list: [],
-        },
+  const articels = [
+    {
+      [serviceId[0]]: {
+        list: [],
       },
-      {
-        [serviceId[1]]: {
-          list: [],
-        },
+    },
+    {
+      [serviceId[1]]: {
+        list: [],
       },
-      {
-        [serviceId[2]]: {
-          list: [],
-        },
+    },
+    {
+      [serviceId[2]]: {
+        list: [],
       },
-      {
-        [serviceId[3]]: {
-          list: [],
-        },
+    },
+    {
+      [serviceId[3]]: {
+        list: [],
       },
-    ],
-  };
+    },
+  ];
+
   for (let i = 0; i < serviceId.length; i++) {
-    articels.list[i][serviceId[i]].list = data.filter(
+    articels[i][serviceId[i]].list = data.filter(
       (art) => art.serviceId === i + 1
     );
   }
+
   return articels;
 };
 
