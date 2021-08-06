@@ -6,7 +6,7 @@ import { defAvatar } from "../../store/url";
 import SignInButton from "../Main/SignInButton";
 
 const LogIn = () => {
-  const id = 1;
+  const id = localStorage.userId;
 
   const history = useHistory();
   const user = useSelector((state) => state.users.user);
