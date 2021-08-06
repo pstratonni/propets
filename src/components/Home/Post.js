@@ -67,7 +67,6 @@ const Post = () => {
             <h3 className="posts__title">{post.title}</h3>
             <p>{post.text}</p>
           </div>
-
           <div className="posts__card-details card-details">
             <NavLink
               to="/Post"
