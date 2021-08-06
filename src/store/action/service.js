@@ -55,7 +55,6 @@ export const addArticle = (data) => {
         },
         body: JSON.stringify(data),
       });
-      
     } catch (e) {
       console.log(e.message);
     }
@@ -87,7 +86,7 @@ const filterService = (data) => {
       },
     ],
   };
-  for (let i = 0; i < 4; i++) {
+  for (let i = 0; i < serviceId.length; i++) {
     articels.list[i][serviceId[i]].list = data.filter(
       (art) => art.serviceId === i + 1
     );
