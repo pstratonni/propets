@@ -5,7 +5,7 @@ import { doSignOut, getUserById } from "../../store/action/user";
 import { defAvatar } from "../../store/url";
 
 const LogIn = () => {
-  const id = localStorage.userId||null;
+  
 
   const history = useHistory();
   const user = useSelector((state) => state.users.user);
@@ -34,7 +34,7 @@ const LogIn = () => {
         <div
           className="user-card__info"
           onClick={() => {
-            history.push(`/edit_profile/${id}`);
+            history.push(`/edit_profile/${localStorage.userId}`);
           }}
         >
           <div className="user-card__img">
