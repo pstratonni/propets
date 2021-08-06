@@ -28,9 +28,25 @@ const NavBar = () => {
     }
   }, [isChangeActinve]);
 
+  const renderBurger = () => {
+    const active = document.querySelectorAll("#left, #burg, #right");
+    console.log(active);
+    for (let elem of active) {
+      elem.classList.toggle("_active");
+    }
+  };
+
   return (
-    <aside className="home-page__sidebar-left">
+    <aside className="home-page__sidebar-left" id="left">
       <nav className="home-page__navigation navigation">
+        <div className="menu-button" id="burg" onClick={renderBurger}>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
         <ul className="navigation__list" id="top">
           <li className="navigation__li">
             <NavLink

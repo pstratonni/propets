@@ -60,7 +60,7 @@ const LogIn = () => {
   };
 
   return (
-    <aside className="home-page__sidebar-right">
+    <aside className="home-page__sidebar-right" id="right">
       <div className="user-card">{tokenIsValid ? renderCard() : null}</div>
     </aside>
   );

@@ -33,7 +33,7 @@ const SignHead = () => {
         <div className="header-logo logo logo-white">
           <Logo />
         </div>
-        <div class="header__buttons">
+        <div className="header__buttons">
           {tokenIsValid ? (
             <>
               <NavLink
