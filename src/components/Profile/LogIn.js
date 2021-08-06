@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
 import { doSignOut, getUserById } from "../../store/action/user";
 import { defAvatar } from "../../store/url";
-import SignInButton from "../Main/SignInButton";
 
 const LogIn = () => {
   const id = localStorage.userId;
