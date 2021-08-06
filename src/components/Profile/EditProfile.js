@@ -121,7 +121,7 @@ const EditProfile = () => {
                 <label htmlFor="">Nick:</label>
                 <input
                   type="text"
-                  defaultValue={user.avatar || "no nick"}
+                  defaultValue={user.nick || "no nick"}
                   name="nick"
                   onChange={changeHandle}
                 />
